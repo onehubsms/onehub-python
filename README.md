@@ -617,3 +617,95 @@ print(req.text)
     ]
 }
 ```
+# Onehub Python Fetch Account Balance Library
+```Python
+import requests
+import json
+
+# authentication
+x_username        = "";
+x_apikey          = "";
+
+# endoint
+fetchBalanceURL   = "https://api.braceafrica.com/v1/billing/balance"
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+req = requests.get(fetchBalanceURL, headers=headers)
+
+# response
+print(req.text)
+```
+# Response Body Parameters
+## Response in case of successful fetching account balance:
+```json
+{
+    "status": 200,
+    "data": {
+        "amount": 6080.11,
+        "currency": "KES"
+    }
+}
+```
+# Onehub Python Fetch Account Statement Library
+```Python
+import requests
+import json
+
+# authentication
+x_username        = "";
+x_apikey          = "";
+
+# endoint
+fetchStatementURL   = "https://api.braceafrica.com/v1/billing/topups"
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+req = requests.get(fetchStatementURL, headers=headers)
+
+# response
+print(req.text)
+```
+# Response Body Parameters
+## Response in case of successful fetching account statement:
+```json
+{
+    "status": 200,
+    "data": [
+        {
+            "id": 4155,
+            "amount": "KES 500",
+            "description": "Mpesa Code ML689276",
+            "type": "MPESA",
+            "date_created": "2019-12-22T14:38:44.000Z",
+            "currency": "KES"
+        }
+        {
+            "id": 4338,
+            "amount": "KES 1100",
+            "description": "Mpesa Code MJUYEO67M",
+            "type": "MPESA",
+            "date_created": "2019-12-22T14:38:44.000Z",
+            "currency": "KES"
+        }
+        {
+            "id": 4598,
+            "amount": "KES 8000",
+            "description": "Admin Top Up",
+            "type": "Admin",
+            "date_created": "2019-12-22T14:38:44.000Z",
+            "currency": "KES"
+        }
+    ]
+}
+```
