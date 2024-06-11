@@ -569,4 +569,51 @@ print(req.text)
     "message": "4 groups have been deleted"
 }
 ```
+# Onehub Python Sender Ids Library
+```Python
+import requests
+import json
 
+# authentication
+x_username        = "";
+x_apikey          = "";
+
+# endoint
+fetchSenderidsURL   = "https://api.braceafrica.com/v1/sms/senderIds/fetch"
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+req = requests.get(fetchSenderidsURL, headers=headers)
+
+# response
+print(req.text)
+```
+# Response Body Parameters
+## Response in case of successful fetching of Sender Ids:
+```json
+{
+    "status": 200,
+    "senderids": [
+        {
+            "sender_id": "BraceAfrica",
+            "country": "Kenya",
+            "status": "active"
+        },
+        {
+            "sender_id": "JubaPay",
+            "country": "Kenya",
+            "status": "active"
+        },
+        {
+            "sender_id": "Foleni",
+            "country": "Uganda",
+            "status": "active"
+        }
+    ]
+}
+```
