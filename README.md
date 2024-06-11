@@ -84,7 +84,7 @@ tags            = "developer,nairobi" # optional comma separated tags
 groups          = "Nairobi Coding, Group 2" # optional groups to add contact
 
 # endoint
-addContactURL   = "https://api.braceafrica.com/v1/contacts/add"
+addContactURL   = "https://api.onehub.co.ke/v1/contacts/add"
 
 headers = {
     'Content-type': 'application/json',
@@ -140,7 +140,7 @@ groups          = "New Group1" # new groups - optional groups to link contact
 contactId       = "1";
 
 # endoint
-editContactURL  = "https://api.braceafrica.com/v1/contacts/edit/"+contactId
+editContactURL  = "https://api.onehub.co.ke/v1/contacts/edit/"+contactId
 
 headers = {
     'Content-type': 'application/json',
@@ -187,7 +187,7 @@ x_username        = "";
 x_apikey          = "";
 
 # endoint
-fetchContactURL   = "https://api.braceafrica.com/v1/contacts/fetch"
+fetchContactURL   = "https://api.onehub.co.ke/v1/contacts/fetch"
 
 headers = {
     'Content-type': 'application/json',
@@ -242,7 +242,7 @@ params = {
 }
 
 # endoint
-deleteContactURL   = "https://api.braceafrica.com/v1/contacts/delete
+deleteContactURL   = "https://api.onehub.co.ke/v1/contacts/delete
 
 headers = {
     'Content-type': 'application/json',
@@ -285,7 +285,7 @@ params = {
 }
 
 # endpoint
-addGroupURL = "https://api.braceafrica.com/v1/contacts/groups/add"
+addGroupURL = "https://api.onehub.co.ke/v1/contacts/groups/add"
 
 headers = {
     'Content-type': 'application/json',
@@ -320,7 +320,7 @@ params = {
 groupId = ""
 
 # endpoint
-editGroupURL = "https://api.braceafrica.com/v1/contacts/groups/edit/" + groupId
+editGroupURL = "https://api.onehub.co.ke/v1/contacts/groups/edit/" + groupId
 
 headers = {
     'Content-type': 'application/json',
@@ -357,7 +357,7 @@ x_username        = "";
 x_apikey          = "";
 
 # endoint
-fetchGroupsURL   = "https://api.braceafrica.com/v1/contacts/groups/fetch"
+fetchGroupsURL   = "https://api.onehub.co.ke/v1/contacts/groups/fetch"
 
 headers = {
     'Content-type': 'application/json',
@@ -406,7 +406,7 @@ params = {
 groupId = ""
 
 # endpoint
-addContactsToGroupURL = "https://api.braceafrica.com/v1/contacts/add/" + groupId
+addContactsToGroupURL = "https://api.onehub.co.ke/v1/contacts/add/" + groupId
 
 headers = {
     'Content-type': 'application/json',
@@ -445,7 +445,7 @@ x_apikey          = "";
 groupId = ""
 
 # endoint
-fetchGroupContactsURL   = "https://api.braceafrica.com/v1/contacts/groups/fetch/" + groupId
+fetchGroupContactsURL   = "https://api.onehub.co.ke/v1/contacts/groups/fetch/" + groupId
 
 headers = {
     'Content-type': 'application/json',
@@ -501,7 +501,7 @@ params = {
 groupId = ""
 
 # endpoint
-deleteGroupContactsURL = "https://api.braceafrica.com/v1/contacts/delete/" + groupId
+deleteGroupContactsURL = "https://api.onehub.co.ke/v1/contacts/delete/" + groupId
 
 headers = {
     'Content-type': 'application/json',
@@ -538,7 +538,7 @@ x_username         = "";
 x_apikey           = "";
 
 # endpoint
-deleteGroupURL = "https://api.braceafrica.com/v1/contacts/groups/delete"
+deleteGroupURL = "https://api.onehub.co.ke/v1/contacts/groups/delete"
 
 params = {
     "groupIds":[1,2,3,4]
@@ -579,7 +579,7 @@ x_username        = "";
 x_apikey          = "";
 
 # endoint
-fetchSenderidsURL   = "https://api.braceafrica.com/v1/sms/senderIds/fetch"
+fetchSenderidsURL   = "https://api.onehub.co.ke/v1/sms/senderIds/fetch"
 
 headers = {
     'Content-type': 'application/json',
@@ -627,7 +627,7 @@ x_username        = "";
 x_apikey          = "";
 
 # endoint
-fetchBalanceURL   = "https://api.braceafrica.com/v1/billing/balance"
+fetchBalanceURL   = "https://api.onehub.co.ke/v1/billing/balance"
 
 headers = {
     'Content-type': 'application/json',
@@ -662,7 +662,7 @@ x_username        = "";
 x_apikey          = "";
 
 # endoint
-fetchStatementURL   = "https://api.braceafrica.com/v1/billing/topups"
+fetchStatementURL   = "https://api.onehub.co.ke/v1/billing/topups"
 
 headers = {
     'Content-type': 'application/json',
