@@ -270,4 +270,303 @@ print(req.text)
 `tags` - `[Type: String]`	`[Optional]` - A unique field to help group contacts e.g football,team,family.
 
 `groups` - `[Type: String]`	`[Optional]` - This is a group name that the contacts will be added to. It must be an existing group.
+# Onehub Python Create Group Library
+```Python
+import requests
+import json
+
+# authentication
+x_username         = "";
+x_apikey           = "";
+
+params = {
+    "name": "",
+    "tags": "",
+}
+
+# endpoint
+addGroupURL = "https://api.braceafrica.com/v1/contacts/groups/add"
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+# endoint
+req = requests.post(addGroupURL, data=json.dumps(params), headers=headers)
+
+# response
+print(req.text)
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Onehub Python Edit Group Library
+```Python
+import requests
+import json
+
+# authentication
+x_username         = "";
+x_apikey           = "";
+
+params = {
+    "name": "",
+}
+
+groupId = ""
+
+# endpoint
+editGroupURL = "https://api.braceafrica.com/v1/contacts/groups/edit/" + groupId
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+# endoint
+req = requests.post(editGroupURL, data=json.dumps(params), headers=headers)
+
+# response
+print(req.text)
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful editing of a group:
+```json
+{
+    "status": 200,
+    "message": "Group has been updated"
+}
+```
+# Onehub Python Fetch Group Library
+```Python
+import requests
+import json
+
+# authentication
+x_username        = "";
+x_apikey          = "";
+
+# endoint
+fetchGroupsURL   = "https://api.braceafrica.com/v1/contacts/groups/fetch"
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+req = requests.get(fetchGroupsURL, headers=headers)
+
+# response
+print(req.text)
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful fetching of a group:
+```json
+{
+    "status": 200,
+    "groups": [
+        {
+            "groupId": 12,
+            "groupName": "Kenzu Safaris",
+            "createdOn": "2019-05-17T00:00:00.000Z",
+            "contacts": []
+        }
+    ]
+}
+```
+# Onehub Python Link Contacts To Group Library
+```Python
+import requests
+import json
+
+# authentication
+x_username         = "";
+x_apikey           = "";
+
+params = {
+    "contactIds": [1,2,3,4]
+}
+
+groupId = ""
+
+# endpoint
+addContactsToGroupURL = "https://api.braceafrica.com/v1/contacts/add/" + groupId
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+# endoint
+req = requests.post(addContactsToGroupURL, data=json.dumps(params), headers=headers)
+
+# response
+print(req.text)
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful linking contacts to a group:
+```json
+{
+    "status": 200,
+    "message": "The contacts linked to group"
+}
+```
+# Onehub Python Fetch Group Contacts Library
+```Python
+import requests
+import json
+
+# authentication
+x_username        = "";
+x_apikey          = "";
+
+groupId = ""
+
+# endoint
+fetchGroupContactsURL   = "https://api.braceafrica.com/v1/contacts/groups/fetch/" + groupId
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+req = requests.get(fetchGroupContactsURL, headers=headers)
+
+# response
+print(req.text)
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful fetching group contacts:
+```json
+{
+    "groupId": 2536,
+    "groupName": "Chama Ya Mama",
+    "contacts": [
+        {
+            "id": 65,
+            "name": "John Doe",
+            "phoneNumber": "+2547xxx4578",
+            "tags": "chairman"
+        },
+        {
+            "id": 63,
+            "name": "Pendo JM",
+            "phoneNumber": "+2547xxy4597",
+            "tags": "member"
+        }
+    ]
+}
+```
+# Onehub Python Remove Group Contacts Library
+```Python
+import requests
+import json
+
+# authentication
+x_username         = "";
+x_apikey           = "";
+
+params = {
+    "contactIds": [1,2,3,4],
+}
+
+groupId = ""
+
+# endpoint
+deleteGroupContactsURL = "https://api.braceafrica.com/v1/contacts/delete/" + groupId
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+# endoint
+req = requests.post(deleteGroupContactsURL, data=json.dumps(params), headers=headers)
+
+# response
+print(req.text)
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful removing group contacts:
+```json
+{
+    "status": 200,
+    "message": "Contacts removed form group"
+}
+```
+# Onehub Python Delete Groups Library
+```Python
+import requests
+import json
+
+# authentication
+x_username         = "";
+x_apikey           = "";
+
+# endpoint
+deleteGroupURL = "https://api.braceafrica.com/v1/contacts/groups/delete"
+
+params = {
+    "groupIds":[1,2,3,4]
+}
+
+headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'x-api-user': x_username,
+    'x-api-key' : x_apikey
+}
+
+# endoint
+req = requests.post(deleteGroupURL,data=json.dumps(params), headers=headers)
+
+# response
+print(req.text)
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful deleting groups:
+```json
+{
+    "status": 200,
+    "message": "4 groups have been deleted"
+}
+```
 
